@@ -1,3 +1,14 @@
+
+# setup
+
+package added-
+npm i @angular/localize
+
+updated polyfills-
+import '@angular/localize/init' 
+
+To run the project use this command
+ng serve --configuration=hi
 # I18n
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.

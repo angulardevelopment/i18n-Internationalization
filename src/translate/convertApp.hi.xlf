@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="92ff80589f966794c25041ff0d6e5823c835b927" datatype="html">
+        <source>Hello World converted</source>
+               <target>नमस्ते विश्व परिवर्तित</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/basic/basic.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myName" datatype="html">
+        <source> Hi, My name is Sam</source>
+        <target>हाय, मेरा नाम सैम है</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/basic/basic.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
