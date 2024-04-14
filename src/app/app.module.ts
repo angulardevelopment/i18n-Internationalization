@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BasicComponent } from './basic/basic.component';
+import { LocalizedComponent } from './localized/localized.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicComponent
+    LocalizedComponent
   ],
   imports: [
     BrowserModule,
