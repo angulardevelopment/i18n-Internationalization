@@ -24,9 +24,12 @@ Implemented basic feature of Angular I18n.
 
 ### How To run the project 
 ng serve --configuration=hi
+ng xi18n (without folder) -> ng xi18n --output-path src/locale (with folder)
+ng xi18n --out-file source.xlf
+ng extract-i18n
 
 ### Packages used
--   @angular/localize
+-  ng add @angular/localize
 
 ### Instructions to update polyfills
 import '@angular/localize/init' in the file. 

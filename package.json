@@ -1,5 +1,5 @@
 {
-  "name": "i18n",
+  "name": "localization-app",
   "version": "0.0.4",
   "scripts": {
     "ng": "ng",

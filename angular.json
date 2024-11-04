@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "i18n": {
+    "localization-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -16,23 +16,26 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "fr": "src/locale/messages.fr.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/i18n",
+            "outputPath": "dist/localization-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "localize": true,
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+             "i18nMissingTranslation": "error",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -63,11 +66,15 @@
                 }
               ]
             },
+            "fr": {
+              "localize": ["fr"],
+              "main": "src/main.ts"
+            },
             "hi": {
               "aot": true,
               "i18nFile": "src/translate/convertApp.hi.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "es",
+              "i18nLocale": "hi",
               "i18nMissingTranslation": "error"
             }
           }
@@ -75,21 +82,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "i18n:build"
+            "browserTarget": "localization-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "i18n:build:production"
+              "browserTarget": "localization-app:build:production"
             },
-            "hi": {      "browserTarget": "i18n:build:hi"    }
+            "hi": { "browserTarget": "localization-app:build:hi" },
+            "fr": {
+              "browserTarget": "localization-app:build:fr"
+            }
           }
-
-
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "i18n:build"
+            "browserTarget": "localization-app:build"
           }
         },
         "test": {
@@ -99,13 +107,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
@@ -117,27 +120,25 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "i18n:serve"
+            "devServerTarget": "localization-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "i18n:serve:production"
+              "devServerTarget": "localization-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "i18n",
+  "defaultProject": "localization-app",
   "cli": {
     "analytics": "ba193fb2-91a2-4501-a4e7-45943ddfd7b2"
   }
