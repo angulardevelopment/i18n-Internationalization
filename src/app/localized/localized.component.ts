@@ -10,6 +10,7 @@ export class LocalizedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this, 'loc a   l')
   }
 
 }

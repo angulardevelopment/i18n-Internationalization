@@ -17,9 +17,12 @@
       "sourceRoot": "src",
       "prefix": "app",
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en",
         "locales": {
-          "fr": "src/locale/messages.fr.xlf"
+          "fr": {
+            "translation": "./src/locale/messages.fr.xlf",
+            "baseHref": ""
+          }
         }
       },
       "architect": {
@@ -31,15 +34,18 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "localize": true,
+            "localize": [
+              "fr"
+            ],
             "aot": true,
-             "i18nMissingTranslation": "error",
+            "i18nMissingTranslation": "error",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "localize": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -67,8 +73,7 @@
               ]
             },
             "fr": {
-              "localize": ["fr"],
-              "main": "src/main.ts"
+              "localize": ["fr"]
             },
             "hi": {
               "aot": true,
@@ -76,8 +81,18 @@
               "i18nFormat": "xlf",
               "i18nLocale": "hi",
               "i18nMissingTranslation": "error"
+            },
+            "development": {
+              "localize": false,
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": false,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -88,16 +103,24 @@
             "production": {
               "browserTarget": "localization-app:build:production"
             },
-            "hi": { "browserTarget": "localization-app:build:hi" },
+            "en-US": {
+              "browserTarget": "localization-ap:build:development,en-US"
+            },
             "fr": {
-              "browserTarget": "localization-app:build:fr"
+              "browserTarget": "localization-app:build:development,fr"
+            },
+            "development": {
+              "browserTarget": "localization-app:build:development"
             }
-          }
+          },
+            "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "localization-app:build"
+            "browserTarget": "localization-app:build",
+            "format": "xlf",
+            "outputPath": "src/locale"
           }
         },
         "test": {
