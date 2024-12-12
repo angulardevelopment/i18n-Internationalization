@@ -104,7 +104,7 @@
               "browserTarget": "localization-app:build:production"
             },
             "en-US": {
-              "browserTarget": "localization-ap:build:development,en-US"
+              "browserTarget": "localization-app:build:development,en-US"
             },
             "fr": {
               "browserTarget": "localization-app:build:development,fr"
