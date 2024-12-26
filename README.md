@@ -20,14 +20,15 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 
 
 ### About the app
-Implemented basic feature of Angular I18n.
+Implemented basic feature of Angular I18n. manage locale data in your Angular application, enabling it to support multiple languages and regions effectively.
 
 ### How To run the project 
 ng serve --configuration=hi
 ng xi18n (without folder) -> ng xi18n --output-path src/locale (with folder)
 ng xi18n --out-file source.xlf
 ng extract-i18n
-
+ng build --localize
+ng extract-i18n --format=arb After running the command, Angular will generate an ARB file in the specified location (typically in the `src/locale` directory). The file will be formatted correctly for use with Angular’s i18n system.
 ### Packages used
 -  ng add @angular/localize
 
