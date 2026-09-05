@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LocalizedComponent } from './localized/localized.component';
-import { MultilingualComponent } from './multilingual/multilingual.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
-const routes: Routes = [{path: 'LocalizedComponent', component: LocalizedComponent},
-  {path: 'MultilingualComponent', component: MultilingualComponent}
-];
+export { routes };
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

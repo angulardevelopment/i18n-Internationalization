@@ -6,10 +6,12 @@
     </a>
     <span class="form-inline">
       <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
-        <option *ngFor="let language of translate.getLangs()" [value]="language"
-          [selected]="language === translate.currentLang">
-          {{ language }}
-        </option>
+        @for (language of translate.getLangs(); track language) {
+          <option [value]="language"
+            [selected]="language === translate.currentLang()">
+            {{ language }}
+          </option>
+        }
       </select>
     </span>
   </div>
@@ -45,4 +47,3 @@
     <button type="submit" class="btn btn-block btn-danger">{{'Submit' | translate}}</button>
   </form>
 </div>
-

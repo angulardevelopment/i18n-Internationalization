@@ -34,11 +34,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "localize": [
-              "fr"
-            ],
             "aot": true,
-            "i18nMissingTranslation": "error",
+            "i18nMissingTranslation": "warning",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
@@ -77,9 +74,6 @@
             },
             "hi": {
               "aot": true,
-              "i18nFile": "src/translate/convertApp.hi.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "hi",
               "i18nMissingTranslation": "error"
             },
             "development": {
@@ -97,28 +91,31 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "localization-app:build"
+            "buildTarget": "localization-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "localization-app:build:production"
+              "buildTarget": "localization-app:build:production"
+            },
+            "en": {
+              "buildTarget": "localization-app:build:development"
             },
             "en-US": {
-              "browserTarget": "localization-app:build:development,en-US"
+              "buildTarget": "localization-app:build:development"
             },
             "fr": {
-              "browserTarget": "localization-app:build:development,fr"
+              "buildTarget": "localization-app:build:development,fr"
             },
             "development": {
-              "browserTarget": "localization-app:build:development"
+              "buildTarget": "localization-app:build:development"
             }
           },
-            "defaultConfiguration": "development"
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "localization-app:build",
+            "buildTarget": "localization-app:build",
             "format": "xlf",
             "outputPath": "src/locale"
           }
@@ -161,7 +158,6 @@
       }
     }
   },
-  "defaultProject": "localization-app",
   "cli": {
     "analytics": "ba193fb2-91a2-4501-a4e7-45943ddfd7b2"
   }

@@ -22,6 +22,10 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 ### About the app
 Implemented basic feature of Angular I18n. manage locale data in your Angular application, enabling it to support multiple languages and regions effectively.
 
+    "i18nFile": "src/translate/convertApp.hi.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "hi",
+              
 ### How To run the project 
 ng serve --configuration=hi
 ng xi18n (without folder) -> ng xi18n --output-path src/locale (with folder)

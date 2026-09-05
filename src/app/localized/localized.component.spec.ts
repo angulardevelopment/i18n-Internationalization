@@ -8,8 +8,8 @@ describe('LocalizedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LocalizedComponent ]
-    })
+    imports: [LocalizedComponent]
+})
     .compileComponents();
   });
 
